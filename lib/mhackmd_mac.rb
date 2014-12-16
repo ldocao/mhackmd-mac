@@ -6,6 +6,8 @@ module MhackmdMac
 	    	case $cmd
 
 	   		#Standard actions
+	   		when ":doc"
+	            documentation
 	    	when ":help"
 	            help
 	    	when ":open", ":go"
@@ -32,6 +34,7 @@ module MhackmdMac
 	    # > mhack @mac :help
 	    def help
 	        puts ""
+	        puts Rainbow(":doc").color("#D65200")+"               Open documentation online"
 	        puts Rainbow(":open").color("#D65200")+"              Open folder"
 	        puts Rainbow(":new").color("#D65200")+"               Create file or directory"
 	        puts Rainbow(":destroy").color("#D65200")+"           Destroy Params file or current directory"
@@ -40,6 +43,10 @@ module MhackmdMac
 	        puts Rainbow(":today").color("#D65200")+"             Show date of day"
 	        puts ""
 	    end  
+
+	    def documentation
+			Launchy.open( "https://github.com/nicolaslechenic/mhackmd-mac.git" )
+	    end
 
 	    #Open directory
 	    def open
