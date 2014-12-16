@@ -1,29 +1,9 @@
 # MhackmdMac
 
-TODO: Write a gem description
+Mhackmd are gems who add a list of commands to mhack script available on [github](https://github.com/nicolaslechenic/mhack)
 
 ## Installation
 
-Add this line to your application's Gemfile:
+MhackmdMac is included by default into [mhack](https://github.com/nicolaslechenic/mhack) ! Just follow [mhack](https://github.com/nicolaslechenic/mhack) instruction to use the commands
 
-    gem 'mhackmd_mac'
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install mhackmd_mac
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/mhackmd_mac/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
