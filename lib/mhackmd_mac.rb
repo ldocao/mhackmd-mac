@@ -31,20 +31,21 @@ module MhackmdMac
 
 	    #Open directory
 	    def open
+
 	    	case $param_one
-	    	when '#desktop'
+	    	when 'Desktop'
 	    		exec 'open '+$desktop_path
-	    	when '#images', '#img', '#image', '#imgs'
+	    	when 'Images'
 	    		exec 'open '+$images_folder
-	    	when '#download', '#dl'
+	    	when 'Download'
 	    		exec 'open '+$download_folder
-	    	when '#music', '#songs', '#song'
+	    	when 'Music'
 	    		exec 'open '+$music_folder
-	    	when '#movies'
+	    	when 'Movies'
 	    		exec 'open '+$movies_folder
-	    	when '#sites', '#website', '#web'
+	    	when 'Sites'
 	    		exec 'open '+$sites_folder
-	    	when '#rails'
+	    	when 'Rails'
 	    		exec 'open '+$rails_folder
 	    	else
 	    		exec 'open '+$param_one
