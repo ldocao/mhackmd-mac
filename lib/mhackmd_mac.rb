@@ -4,16 +4,17 @@ module MhackmdMac
 	class MAC
 	    def cmd
 	    	case $cmd
+
+	   		#Standard actions
 	    	when ":help"
 	            help
-	        #Standard actions
 	    	when ":open", ":go"
 	    		open
 	        when ":new", ":create"
 	            create
 	        when ":destroy", ":delete", ":drop", ":crush", ":remove"
 	            destroy
-	            
+
 
 	        when ":clean"
 	        	cleaner
@@ -33,6 +34,8 @@ module MhackmdMac
 	        puts ""
 	        puts Rainbow(":open").color("#D65200")+"              Open folder"
 	        puts Rainbow(":new").color("#D65200")+"               Create file or directory"
+	        puts Rainbow(":destroy").color("#D65200")+"           Destroy Params file or current directory"
+	        puts Rainbow(":clean").color("#D65200")+"             Clean the trash"
 	        puts Rainbow(":calendar").color("#D65200")+"          Show current month"
 	        puts Rainbow(":today").color("#D65200")+"             Show date of day"
 	        puts ""
