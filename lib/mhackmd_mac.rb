@@ -4,12 +4,19 @@ module MhackmdMac
 	class MAC
 	    def cmd
 	    	case $cmd
-	    	when ":open"
-	    		open
-	        when ":new"
-	            create
-	        when ":help"
+	    	when ":help"
 	            help
+	        #Standard actions
+	    	when ":open", ":go"
+	    		open
+	        when ":new", ":create"
+	            create
+	        when ":destroy", ":delete", ":drop", ":crush", ":remove"
+	            destroy
+	            
+
+	        when ":clean"
+	        	cleaner
 	        when ":calendar"
 	            calendar
 	        when ":today"
@@ -56,7 +63,6 @@ module MhackmdMac
 
 	    #Make file or directory
 	    def create
-	     
 	        type = $param_one.split('.')
 
 	        if type[1]
@@ -74,6 +80,76 @@ module MhackmdMac
 	            end
 	        end
 	    end
+
+	    #Destroy file or directory
+	    def destroy
+
+	    	current_dir = Dir.pwd
+
+	    	if $param_one
+	    		puts ""
+				puts Rainbow("/!\\ Are you sure you want destroy "+$param_one+" ? \n Enter your answer Yes/No").background("#F7A000") 
+				puts ""
+				answer = STDIN.gets.chomp
+
+				if answer == "Yes"
+					FileUtils.rm_rf($param_one)
+					puts ""
+					puts $param_one+" are remove"
+					puts ""
+				elsif answer == "No"
+					puts ""
+					puts puts Rainbow("Phew ! That was close ...").color("#D65200")
+					puts ""
+				else
+					puts "Wrong answer, please write Yes or No"
+				end
+
+			else
+				puts ""
+				puts Rainbow("/!\\ Are you sure you want destroy "+current_dir+" ? \n Enter your answer Yes/No").background("#F7A000") 
+				puts ""
+				answer = STDIN.gets.chomp
+
+				if answer == "Yes"
+					FileUtils.rm_rf(current_dir)
+					puts ""
+					puts current_dir+" are remove"
+					puts ""
+				elsif answer == "No"
+					puts ""
+					puts puts Rainbow("Phew ! That was close ...").color("#D65200")
+					puts ""
+				else
+					puts "Wrong answer, please write Yes or No"
+				end
+			end
+	    end
+
+
+	    #Clean the trash
+	    def cleaner
+			puts ""
+			puts Rainbow("/!\\ Are you sure you want empty trash ? \n Enter your answer Yes/No").background("#F7A000") 
+			puts ""
+			answer = STDIN.gets.chomp
+
+			if answer == "Yes"
+				system "rm -rf ~/.Trash/*"
+				puts ""
+				puts "The trash is cleaned"
+				puts ""
+			elsif answer == "No"
+				puts ""
+				puts puts Rainbow("The trash stinks, will soon be emptied !").color("#D65200")
+				puts ""
+			else
+				puts "Wrong answer, please write Yes or No"
+			end
+		
+	
+	    end
+
 
 	    def calendar
 	        exec 'cal'
