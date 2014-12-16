@@ -32,7 +32,19 @@ module MhackmdMac
 	    #Open directory
 	    def open
 	    	case $param_one
-	    	when '@rails'
+	    	when '#desktop'
+	    		exec 'open '+$desktop_path
+	    	when '#images', '#img', '#image', '#imgs'
+	    		exec 'open '+$images_folder
+	    	when '#download', '#dl'
+	    		exec 'open '+$download_folder
+	    	when '#music', '#songs', '#song'
+	    		exec 'open '+$music_folder
+	    	when '#movies'
+	    		exec 'open '+$movies_folder
+	    	when '#sites', '#website', '#web'
+	    		exec 'open '+$sites_folder
+	    	when '#rails'
 	    		exec 'open '+$rails_folder
 	    	else
 	    		exec 'open '+$param_one
@@ -51,9 +63,7 @@ module MhackmdMac
 	            else
 	                FileUtils.touch($param_one)
 	            end
-
 	        else
-	            
 	            if $param_two
 	                FileUtils::mkdir_p $param_two+'/'+$param_one
 	            else
