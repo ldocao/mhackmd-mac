@@ -15,7 +15,9 @@ module MhackmdMac
 	        when ":today"
 	            today
 	    	else
-	    		"Unknow :action !"
+	    		puts ""
+            	puts Rainbow("/!\\ Unknown :action").background("#EA1B00") 
+            	puts ""
 	    	end
 	    end
 
