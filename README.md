@@ -80,3 +80,17 @@ See the current calendar month
     > mhack @mac :today
 
 See the date
+
+
+#:desktop-hide
+
+    > mhack @mac :desktop-hide
+
+Hide desktop icon
+
+
+#:desktop-show
+
+    > mhack @mac :desktop-show
+
+Show desktop icon
