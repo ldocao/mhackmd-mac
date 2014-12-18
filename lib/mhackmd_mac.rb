@@ -1,9 +1,15 @@
 require "mhackmd_mac/version"
 
 module MhackmdMac
-	class MAC
-	    def cmd
-	    	case $cmd
+	class Mac
+
+		def initialize
+			@action = Mhack::Dispatcher.new.get_action
+			@params = Mhack::Dispatcher.new.get_params
+		end
+
+	    def launcher
+	    	case @action
 
 	   		#Standard actions
 	   		when ":doc"
@@ -51,7 +57,7 @@ module MhackmdMac
 	    #Open directory
 	    def open
 
-	    	case $param_one
+	    	case @params[0]
 	    	when 'Desktop'
 	    		exec 'open '+$desktop_path
 	    	when 'Images'
@@ -67,26 +73,26 @@ module MhackmdMac
 	    	when 'Rails'
 	    		exec 'open '+$rails_folder
 	    	else
-	    		exec 'open '+$param_one
+	    		exec 'open '+@params[0]
 	    	end
 	    end
 
 	    #Make file or directory
 	    def create
-	        type = $param_one.split('.')
+	        type = @params[0].split('.')
 
 	        if type[1]
 
-	            if $param_two
-	                FileUtils.touch($param_two+'/'+$param_one)
+	            if @params[1]
+	                FileUtils.touch(@params[1]+'/'+@params[0])
 	            else
-	                FileUtils.touch($param_one)
+	                FileUtils.touch(@params[0])
 	            end
 	        else
-	            if $param_two
-	                FileUtils::mkdir_p $param_two+'/'+$param_one
+	            if @params[1]
+	                FileUtils::mkdir_p @params[1]+'/'+@params[0]
 	            else
-	                FileUtils::mkdir_p $param_one
+	                FileUtils::mkdir_p @params[0]
 	            end
 	        end
 	    end
@@ -96,16 +102,16 @@ module MhackmdMac
 
 	    	current_dir = Dir.pwd
 
-	    	if $param_one
+	    	if @params[0]
 	    		puts ""
-				puts Rainbow("/!\\ Are you sure you want destroy "+$param_one+" ? \n Enter your answer Yes/No").background("#F7A000") 
+				puts Rainbow("/!\\ Are you sure you want destroy "+@params[0]+" ? \n Enter your answer Yes/No").background("#F7A000") 
 				puts ""
 				answer = STDIN.gets.chomp
 
 				if answer == "Yes"
-					FileUtils.rm_rf($param_one)
+					FileUtils.rm_rf(@params[0])
 					puts ""
-					puts $param_one+" are remove"
+					puts @params[0]+" are remove"
 					puts ""
 				elsif answer == "No"
 					puts ""
