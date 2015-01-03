@@ -16,19 +16,8 @@ MhackmdMac is included by default into [mhack](https://github.com/nicolaslecheni
 
 (:open or :go)
 
-    > mhack @mac :open (Keyword or param)
+    > mhack @mac :open param
 
-***Keywords***
-
- - Desktop
- - Images
- - Download
- - Music
- - Movies
- - Sites
- - Rails
-
-Each keyword open folder defined in [mhack](https://github.com/nicolaslechenic/mhack) config.rb 
 
 
 ***Params***

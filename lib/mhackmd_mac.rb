@@ -41,7 +41,7 @@ module MhackmdMac
 	    def help
 	        puts ""
 	        puts Rainbow(":doc").color("#D65200")+"               Open documentation online"
-	        puts Rainbow(":open").color("#D65200")+"              Open folder"
+	        puts Rainbow(":open").color("#D65200")+"              Open file or folder"
 	        puts Rainbow(":new").color("#D65200")+"               Create file or directory"
 	        puts Rainbow(":destroy").color("#D65200")+"           Destroy Params file or current directory"
 	        puts Rainbow(":clean").color("#D65200")+"             Clean the trash"
@@ -54,27 +54,9 @@ module MhackmdMac
 			Launchy.open( "https://github.com/nicolaslechenic/mhackmd-mac.git" )
 	    end
 
-	    #Open directory
+	    #Open file or directory
 	    def open
-
-	    	case @params[0]
-	    	when 'Desktop'
-	    		exec 'open '+$desktop_path
-	    	when 'Images'
-	    		exec 'open '+$images_folder
-	    	when 'Download'
-	    		exec 'open '+$download_folder
-	    	when 'Music'
-	    		exec 'open '+$music_folder
-	    	when 'Movies'
-	    		exec 'open '+$movies_folder
-	    	when 'Sites'
-	    		exec 'open '+$sites_folder
-	    	when 'Rails'
-	    		exec 'open '+$rails_folder
-	    	else
-	    		exec 'open '+@params[0]
-	    	end
+	    	exec 'open '+@params[0]
 	    end
 
 	    #Make file or directory
