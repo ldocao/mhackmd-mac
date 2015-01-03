@@ -24,10 +24,6 @@ module MhackmdMac
 	            destroy
 
 
-	        when ":desktop-hide"
-	        	desktop_hide
-	        when ":desktop-show"
-	        	desktop_show
 	        when ":clean"
 	        	cleaner
 	        when ":calendar"
@@ -51,8 +47,6 @@ module MhackmdMac
 	        puts Rainbow(":clean").color("#D65200")+"             Clean the trash"
 	        puts Rainbow(":calendar").color("#D65200")+"          Show current month"
 	        puts Rainbow(":today").color("#D65200")+"             Show date of day"
-	       	puts Rainbow(":desktop-show").color("#D65200")+"      Show desktop icon"
-	        puts Rainbow(":desktop-hide").color("#D65200")+"      Hide desktop icon"
 	        puts ""
 	    end  
 
@@ -169,14 +163,6 @@ module MhackmdMac
 				puts "Wrong answer, please write Yes or No"
 			end
 	
-	    end
-
-	    def desktop_hide
-	    	system "defaults write com.apple.finder CreateDesktop false; killall Finder"
-	    end
-
-	     def desktop_show
-	    	system "defaults write com.apple.finder CreateDesktop true; killall Finder"
 	    end
 
 
