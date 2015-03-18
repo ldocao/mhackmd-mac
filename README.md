@@ -39,7 +39,7 @@ MhackmdMac is included by default into [mhack](https://github.com/nicolaslecheni
 
 #:destroy
 
-(:destroy or :delete or :drop or :crush or :drop)
+(:destroy or :delete or :drop or :crush or :drop or :rm)
 
     > mhack @mac :destroy (params)
 
