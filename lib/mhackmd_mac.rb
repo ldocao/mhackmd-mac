@@ -20,7 +20,7 @@ module MhackmdMac
 	    		open
 	        when ":new", ":create"
 	            create
-	        when ":destroy", ":delete", ":drop", ":crush", ":remove"
+	        when ":destroy", ":delete", ":drop", ":crush", ":remove", ":rm"
 	            destroy
 
 
