@@ -37,7 +37,17 @@ module MhackmdMac
 	    	end
 	    end
 
-	    # > mhack @mac :help
+
+
+            
+            # Public : Display help message for a command
+            #
+            # Examples
+            #   > mhack @techno :help
+            #   ##should be added here the results of command
+            #
+            # Returns list of available actions for the current technology.
+            
 	    def help
 	        puts ""
 	        puts Rainbow(":doc").color("#D65200")+"               Open documentation online"
@@ -54,12 +64,28 @@ module MhackmdMac
 			Launchy.open( "https://github.com/nicolaslechenic/mhackmd-mac.git" )
 	    end
 
-	    #Open file or directory
+
+
+            # Public : Open a file or directory
+            #
+            # Examples
+            #   > mhack @techno :open param
+            #   ##should be added here the results of command
+            #
+            # Open a file or directory
 	    def open
 	    	exec 'open '+@params[0]
 	    end
 
-	    #Make file or directory
+
+
+            # Public : Make file or directory
+            #
+            # Examples
+            #   > mhack @techno :create param
+            #   ##should be added here the results of command
+            #
+            # Create a file or directory
 	    def create
 	        type = @params[0].split('.')
 
@@ -79,7 +105,14 @@ module MhackmdMac
 	        end
 	    end
 
-	    #Destroy file or directory
+
+            # Public : Destroy file or directory
+            #
+            # Examples
+            #   > mhack @techno :destroy param
+            #   ##should be added here the results of command
+            #
+            # Remove a file or directory
 	    def destroy
 
 	    	current_dir = Dir.pwd
